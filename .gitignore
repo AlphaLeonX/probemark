@@ -1,0 +1,21 @@
+# VS Code Extension output
+out/
+dist/
+*.vsix
+
+# Node modules
+node_modules/
+
+# Build artifacts
+*.tsbuildinfo
+
+# IDE
+.vscode/
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# macOS
+.DS_Store
+
+# Test
+.vscode-test/

@@ -1,0 +1,103 @@
+{
+  "name": "probemark",
+  "displayName": "ProbeMark",
+  "description": "Insert traceable temporary debug probes with source context and safe cleanup.",
+  "version": "0.0.1",
+  "publisher": "AlphaLeonX",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlphaLeonX/probemark"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "icon": "images/icon.png",
+  "activationEvents": [
+    "onCommand:probemark.insertProbe",
+    "onCommand:probemark.removeProbesInCurrentFile",
+    "onCommand:probemark.removeProbesInWorkspace",
+    "onCommand:probemark.previewProbesInCurrentFile"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "probemark.insertProbe",
+        "title": "Insert Debug Probe",
+        "category": "ProbeMark"
+      },
+      {
+        "command": "probemark.removeProbesInCurrentFile",
+        "title": "Remove Probes in Current File",
+        "category": "ProbeMark"
+      },
+      {
+        "command": "probemark.removeProbesInWorkspace",
+        "title": "Remove Probes in Workspace",
+        "category": "ProbeMark"
+      },
+      {
+        "command": "probemark.previewProbesInCurrentFile",
+        "title": "Preview Probes in Current File",
+        "category": "ProbeMark"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "probemark.insertProbe",
+        "key": "cmd+l",
+        "mac": "cmd+l",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "probemark.insertProbe",
+        "key": "ctrl+l",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "keywords": [
+    "debug",
+    "log",
+    "probe",
+    "console",
+    "console.log",
+    "print",
+    "temporary logs",
+    "safe cleanup",
+    "context-aware",
+    "vscode"
+  ],
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "test": "npm run test:regression",
+    "test:unit": "npm run compile && mocha --ui tdd \"out/test/unit/**/*.test.js\"",
+    "test:integration": "npm run compile && vscode-test",
+    "test:regression": "npm run compile && npm run test:unit && npm run test:integration",
+    "prepublish:check": "npm run test:regression"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.10.0",
+    "@types/sinon": "^21.0.1",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.9.2",
+    "eslint": "^8.54.0",
+    "mocha": "^11.7.6",
+    "sinon": "^22.0.0",
+    "typescript": "^5.3.0"
+  }
+}
