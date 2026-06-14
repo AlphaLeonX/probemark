@@ -2,7 +2,7 @@
   "name": "probemark",
   "displayName": "ProbeMark",
   "description": "Insert traceable temporary debug probes with source context and safe cleanup.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "AlphaLeonX",
   "license": "MIT",
   "repository": {
